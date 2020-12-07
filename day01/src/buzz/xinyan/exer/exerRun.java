@@ -22,16 +22,20 @@ public class exerRun {
     }
 }
 
-class myexerRun implements Runnable{
-    private  int ticket = 100;
+class myexerRun implements Runnable {
+    private int ticket = 100;
+    Object V = new Object();
+
     @Override
     public void run() {
-        if(ticket<=100 && ticket >= 0){
-            for (int i = 0;i < 100;i++){
-                ticket--;
-                System.out.println(Thread.currentThread().getName()+":"+ticket);
+        synchronized (V) {
+            if (ticket <= 100 && ticket >0) {
+                for (int i = 0; i < 100; i++) {
+                    ticket--;
+                    System.out.println(Thread.currentThread().getName() + ":" + ticket);
+                }
             }
-        }
 
+        }
     }
 }
