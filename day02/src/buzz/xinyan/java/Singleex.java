@@ -13,7 +13,7 @@ public class Singleex {
 
     public static Singleex ins = null;
 
-    public static Singleex getIns() {
+    private static Singleex getIns() {
 //        //方式一，效率差
 ////        synchronized (Singleex.class) {
 //            if (ins == null) {
