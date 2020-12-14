@@ -20,5 +20,7 @@ public class StringTest {
         ts.change(ts.str, ts.ch);
         System.out.println(ts.str);
         System.out.println(ts.ch);
+
+
     }
 }
