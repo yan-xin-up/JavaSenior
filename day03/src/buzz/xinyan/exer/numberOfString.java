@@ -17,7 +17,8 @@ public class numberOfString {
         int count = 0;
         while(true){
             int index = s.indexOf(b);
-            if(index != -1){
+            System.out.println(index);
+            if(index != -1){        //注：indexOf 和 lastIndexOf 方法如果未找到都是返回-1
                 count++;
                 s = s.substring(index + 1);
             }else{
