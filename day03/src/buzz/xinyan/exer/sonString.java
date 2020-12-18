@@ -12,7 +12,7 @@ public class sonString {
 
     public static void main(String[] args) {
         sonString s = new  sonString();
-        String maxSameString = s.getMaxSameString("hello", "werthelloyhasb");
+        String maxSameString = s.getMaxSameString("Ahello12", "werthelloyhasb");
         System.out.println(maxSameString);
     }
     private String getMaxSameString(String a,String b){
