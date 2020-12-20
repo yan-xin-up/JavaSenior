@@ -2,6 +2,8 @@ package buzz.xinyan.exer;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * @descriptions: 两字符串的最大相同子串
  * @author: Ivan
@@ -59,10 +61,12 @@ public class StringDemo2 {
     }
     @Test
     public void DemoTest() {
-        String mainStr = "abcwerthelloyuiodef";
-        String subStr = "cvhellobnm";
+        String mainStr = "abcwerthelloyuiodefgh";
+        String subStr = "cvhellobnmdefgh";
 
         String maxSameString = getMaxSameString(mainStr, subStr);
+        String [] maxSameString1 = getMaxSameSubString1(mainStr, subStr);
         System.out.println(maxSameString);
+        System.out.println(Arrays.toString(maxSameString1));
     }
 }
