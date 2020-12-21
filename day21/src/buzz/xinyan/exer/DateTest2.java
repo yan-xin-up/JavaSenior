@@ -3,9 +3,7 @@ package buzz.xinyan.exer;
 //import org.junit.Test;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -38,8 +36,11 @@ public class DateTest2 {
         Calendar calendar = Calendar.getInstance();
 //        calendar.set(Calendar.YEAR, yyyy);
         calendar.set(yyyy,MM,dd);
-
-      int dayThisyear = calendar.get(calendar.DAY_OF_YEAR);
+//        Date date3 = new Date();
+//        calendar.setTime(date3);
+//        int i = calendar.get(calendar.DAY_OF_YEAR);
+//        System.out.println(i);
+        int dayThisyear = calendar.get(calendar.DAY_OF_YEAR);
         System.out.println(dayThisyear);
         int dayAll = 0;
         int dayTotal;
