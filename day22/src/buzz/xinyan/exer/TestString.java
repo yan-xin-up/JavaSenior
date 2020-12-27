@@ -11,11 +11,12 @@ import org.junit.Test;
 public class TestString {
     @Test
     public void Test22(){
-        String str1 = new String("d");
-        String str2 = new String("watchddd");
+        String str1 = new String("n");
+        String str2 = new String("watchddncd");
 
         System.out.println(str2.lastIndexOf(str1));
-        System.out.println(str2.lastIndexOf(str1,8));
+        System.out.println(str2.lastIndexOf(str1,5));//-1
+        System.out.println(str2.indexOf(str1,5));//7
         System.out.println(str2.length());
 
         System.out.println(str2.replace("ch", "ww"));
