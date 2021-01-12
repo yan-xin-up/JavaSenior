@@ -7,8 +7,8 @@ package buzz.xinyan.exer;
  * @create: 2020-12-22 23:09
  */
 public class Person implements Comparable {
-    private  String name;
-    private  int age;
+    private String name;
+    private int age;
 
     public String getName() {
         return name;
@@ -42,9 +42,9 @@ public class Person implements Comparable {
     @Override
     public int compareTo(Object o) {
 
-        if (o instanceof Person){
-            Person s  = (Person)o;
-            return  this.name.compareTo((s.name));
+        if (o instanceof Person) {
+            Person s = (Person) o;
+            return this.name.compareTo((s.name));
         }
         throw new RuntimeException("didi");
 
