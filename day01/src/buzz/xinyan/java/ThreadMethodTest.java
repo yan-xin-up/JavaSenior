@@ -6,7 +6,30 @@ package buzz.xinyan.java;
  * @version: 1.0
  */
 
-
 public class ThreadMethodTest {
+    public static void main(String[] args) {
+        aubThread p = new aubThread();
+        aubThread z = new aubThread();
+        z.start();
+        p.start();
+        System.out.println("hello");
 
+
+        for(int i = 0;i <= 100;i++){
+            if(i % 2 == 0){
+                System.out.println(Thread.currentThread().getName()+":"+i);
+            }
+        }
+    }
+}
+class aubThread extends Thread{
+    @Override
+    public void run() {
+        super.run();
+        for(int i = 0;i <= 100;i++){
+            if(i % 2 == 0){
+                System.out.println(Thread.currentThread().getName()+":"+i);
+            }
+        }
+    }
 }
