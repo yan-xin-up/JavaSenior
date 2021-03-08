@@ -28,7 +28,7 @@ public class WindowsTest2 {
     class myRunnable2 extends Thread {
 
         private static int ticket = 100;
-        private static Object obj = new Object();
+        private static Object obj = new Object();//使用static将锁变为单独锁
 
         @Override
         public void run() {
