@@ -21,7 +21,7 @@ class Acccount{
     }
 
     //存钱
-    public synchronized void deposit(double amt){
+    public void deposit(double amt){
         if(amt > 0){
             balance += amt;
 
