@@ -23,10 +23,14 @@ class Custumer implements Runnable {
 /**
  * 店员
  */
+
+
+
 class Clerk implements Runnable {
 
     @Override
     public void run() {
+
 
     }
 }
