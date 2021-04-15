@@ -21,14 +21,15 @@ class Account1 {
         this.amt = amt;
     }
 
-    public void deposit1(double mo) {
-
-        amt += mo;
-        System.out.println(Thread.currentThread().getName() + ":存钱成功。余额为：" + amt);
+    public synchronized void  deposit1(double mo) {
+        if(mo > 0){
+            amt += mo;
+            System.out.println(Thread.currentThread().getName() + ":存钱成功。余额为：" + amt);
+        }
     }
 }
 
-class User implements Runnable {
+class User implements Runnable {            //uesr
     private Account1 acc;
 
     public User(Account1 acc) {
@@ -38,12 +39,15 @@ class User implements Runnable {
     public void run() {
         for (int i = 0; i < 3; i++) {
             acc.deposit1(1000);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
-
 public class AccountTest1 {
-
     public static void main(String[] args) {
         Account1 account1 = new Account1(0);        //初始余额
         User u = new User(account1);
