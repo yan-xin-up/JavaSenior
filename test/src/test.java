@@ -6,6 +6,12 @@
  */
 public class test {
 
-    implmence o1 = new implmence();
-    new implements2(o1)
+
+    public static void main(String[] args) {
+
+        implmence o1 = new implmence();
+        implements2 implements2 = new implements2(o1);
+
+
+    }
 }
