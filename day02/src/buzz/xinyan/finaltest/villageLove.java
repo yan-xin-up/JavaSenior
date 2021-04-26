@@ -1,6 +1,7 @@
 package buzz.xinyan.finaltest;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 
 /**
  * @descriptions: buyticket
@@ -9,40 +10,75 @@ import java.util.concurrent.Callable;
  * @version: 1.0
  */
 
-class salesMan{
-    private int buyerMoney;             //买家余额
-    private int sellerMoney = 5;            //售货员零钱
-    private int ticketNumber = 3;       //三张票
+class salesMan {
+    private int money = 5;            //售货员零钱
     private int price = 5;              //票价
-    salesMan salesman = new salesMan();
-    private void moneyChange(){
-        buyerMoney = buyerMoney -  price;
-    }
-    public void sellTicket() {
-        while (salesman.iFdo() ||ticketNumber > 0) {
-            System.out.println(Thread.currentThread().getName()+"购票成功");
-            ticketNumber--;
-        }
+
+    public void changeMoney() {
+        money += price;
     }
 
-    private boolean iFdo() {
-        if(sellerMoney >= buyerMoney-price){
+    public boolean iFdo(int money) {
+        if (this.money >= money - price) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 }
 
-class getTicket implements Callable{
-    salesMan sale = new salesMan();
-    @Override
-    public Object call() throws Exception {
+class getTicket implements Runnable {
+    private int money;             //买家余额
+    private salesMan sale;
+    int ticket = 0;
 
-        sale.sellTicket();
-        return null;
+    public getTicket(salesMan sale, int money) {
+        this.money = money;
+        this.sale = sale;
+    }
+
+
+    @Override
+    public void run() {
+        while (ticket == 0) {
+            synchronized (sale) {
+                if (sale.iFdo(money)) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    sale.changeMoney();
+                    ticket++;
+                    System.out.println(Thread.currentThread().getName()
+                            + ":买到一张票！");
+                }else{
+                    break;
+                }
+            }
+
+        }
     }
 }
-public class villageLove {
 
+public class villageLove {
+    public static void main(String[] args) {
+        salesMan sale = new salesMan();
+        getTicket b1 = new getTicket(sale, 20);         //dana
+        getTicket b2 = new getTicket(sale, 10);         //dajiao
+        getTicket b3 = new getTicket(sale, 5);         //sishu
+        Thread t1 = new Thread(b1);
+        Thread t2 = new Thread(b2);
+        Thread t3 = new Thread(b3);
+
+        t1.setName("大拿");
+        t2.setName("大脚");
+        t3.setName("赵老四");
+
+        t1.start();
+        t3.start();
+        t2.start();
+
+
+    }
 }
