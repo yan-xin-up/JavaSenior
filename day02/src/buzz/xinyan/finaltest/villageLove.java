@@ -14,6 +14,9 @@ class salesMan {
     private int money = 5;            //售货员零钱
     private int price = 5;              //票价
 
+    /**
+     * 每卖一张票零钱加5元
+     */
     public void changeMoney() {
         money += price;
     }
@@ -52,9 +55,8 @@ class getTicket implements Runnable {
                     ticket++;
                     System.out.println(Thread.currentThread().getName()
                             + ":买到一张票！");
-                }else{
-                    break;
                 }
+
             }
 
         }
@@ -76,8 +78,8 @@ public class villageLove {
         t3.setName("赵老四");
 
         t1.start();
-        t3.start();
         t2.start();
+        t3.start();
 
 
     }
