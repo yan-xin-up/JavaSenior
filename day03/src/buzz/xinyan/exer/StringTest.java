@@ -18,8 +18,8 @@ public class StringTest {
     public static void main(String[] args) {
         StringTest ts = new StringTest();
         ts.change(ts.str, ts.ch);
-        System.out.println(ts.str);
-        System.out.println(ts.ch);
+        System.out.println(ts.str);//good
+        System.out.println(ts.ch);//best
 
 
     }
