@@ -10,10 +10,10 @@ import org.junit.Test;
  */
 public class StringTest {
     @Test
-    public void  test1(){
+    public void test1() {
         String a1 = "javaEE";
         String a2 = "javaEE";
-
+        String s = new String();
         String a3 = new String("javaEE");
         String a4 = new String("javaEE");
         String a5 = a1.toLowerCase();
@@ -29,12 +29,12 @@ public class StringTest {
 
 
     @Test
-    public void Test2(){
+    public void Test2() {
         String a1 = "全中国最帅";
 
         String a2 = new String("东京第一帅逼");
 
-        String replace = a1.replace('帅','美');
+        String replace = a1.replace('帅', '美');
 
         System.out.println(replace);
         System.out.println(a1);
