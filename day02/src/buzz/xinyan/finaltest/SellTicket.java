@@ -41,6 +41,7 @@ public class SellTicket {
         Sellticket number = new Sellticket();
 
         Thread t1 = new Thread(number);
+        String s = new String();
         Thread t2 = new Thread(number);
 
         t1.setName("线程1");
