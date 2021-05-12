@@ -22,7 +22,7 @@ public class Trimcopy {
 
     @Test
     public void Trim1() {
-        String str = new String(" ");
+        String str = new String(" abv123");
         if (str!= null) {
             int st = 0;                 //首位
             int len = str.length();
@@ -40,7 +40,7 @@ public class Trimcopy {
         }
     }
 
-
+    @Test
     public void test11(){
 
     }
