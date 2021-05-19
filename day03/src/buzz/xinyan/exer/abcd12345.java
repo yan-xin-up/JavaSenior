@@ -29,13 +29,28 @@ public class abcd12345 {
 
     public static void main(String[] args) {
         bcder b = new bcder();
-        System.out.println(b.Test2("abcd12345", 1, 7));
+//        System.out.println(b.Test2("abcd12345", 1, 7));
+        System.out.println(b.TestReverse("abcd12345", 1, 7));
     }
 
 
 }
 
 class bcder {
+
+    public String TestReverse(String str, int st, int end) {
+
+        StringBuilder Str1 = new StringBuilder(str.length());        //此处预先设置Str字符的长度 避免后期扩容
+        if (str != null) {
+            Str1.append(str.substring(0, st));
+            for (int x = end; x >= st; x--) {
+                Str1.append(str.charAt(x));
+            }
+            Str1.append(str.substring(end+1));
+            return Str1.toString();
+        }
+        return null;
+    }
 
     public String Test2(String str, int st, int end) {
         if (str != null && str.length() != 0) {
