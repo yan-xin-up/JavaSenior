@@ -31,10 +31,26 @@ public class StringDemo2 {
 
     }
 
+    public void getCounts(String mainStr,String subStr){
+        int mainlength = mainStr.length();
+        int sublength = subStr.length();
+        int count = 0;              //出现的次数
+        int index = 0;              //出现的角标
+        while ((index = mainStr.indexOf(subStr)) != -1){
+            count++;                //次数增加
+
+            mainStr = mainStr.substring(index+subStr.length());
+        }
+
+        System.out.println(count);
+    }
+
     public static void main(String args[]) {
         String main = new String("abkkcadkabkebfkabkskab");
         String str = new String("ab");
         StringDemo2 stringDemo2 = new StringDemo2();
         System.out.println(stringDemo2.getTimes(main, str));
+        stringDemo2.getCounts(main,str);
+
     }
 }
