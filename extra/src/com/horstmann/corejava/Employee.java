@@ -30,7 +30,8 @@ public class Employee {
     }
 
     public void raiseSalary(double byPercent){
-
+        double raise = salary *byPercent/100;
+        salary += raise;
     }
 
 }
